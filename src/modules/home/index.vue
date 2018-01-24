@@ -1,5 +1,5 @@
 <template>
-    <div class="main home-wrap" v-title="'欢迎使用'">
+    <div class="main home-wrap" v-title="'欢迎'">
         <div class="welcome">
             <h2>欢迎</h2>
         </div>
@@ -15,14 +15,6 @@
                 loading: false
             }
         },
-        /*computed: {
-            isLogin() {
-                return !!(this.user && this.user.token);
-            },
-            user() {
-                return this.$store.getters.getUser;
-            }
-        }*/
     }
 </script>
 

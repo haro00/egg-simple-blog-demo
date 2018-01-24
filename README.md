@@ -16,7 +16,7 @@
 
 - `egg-socket.io`使用`redis`, 还需要启动`redis`。
 
-### 目录结构 - Structure
+### 目录结构
 
 ```
 |--------------------------------------------------
@@ -56,7 +56,7 @@
 |---|---template.html    // 模板html
 |---/test    // 测试目录, egg的测试必须以 **.test.js 方式命名
 |---/app.js    // 本地开发自定义启动过程中加载的中间件,获取数据等
----.babelrc    // babel配置
+|---.babelrc    // babel配置
 |---.eslintrc    // eslint配置
 |---.stylelintrc    // stylelint配置
 |---blog.sql    // 创建数据库脚本
@@ -75,7 +75,21 @@ $ npm run dev
 
 ### 部署
 
-线上正式环境用 `egg-script` 来启动。
+- 生产环境编译
+
+```
+npm run release
+```
+
+- 服务器只需要`app`和`config`两个文件夹
+
+- 服务器安装依赖
+
+```
+npm install --production
+```
+
+- 使用`egg-script`来启动。
 
 ```
 # 启动
@@ -94,3 +108,8 @@ $ npm stop
 
 
 [egg]: https://eggjs.org
+
+
+## License
+
+MIT

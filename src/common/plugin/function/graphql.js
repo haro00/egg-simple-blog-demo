@@ -1,6 +1,12 @@
 import tip from './tip';
 import md5 from 'md5'
 
+/**
+ * fetch的简单封装
+ * @param url
+ * @param opt
+ * @returns {Promise<any>}
+ */
 export function fetchApi(url, opt) {
     return new Promise((resolve, reject) => {
         if (Object.prototype.toString.call(opt) !== '[object Object]') {

@@ -15,10 +15,6 @@ Vue.use(VueRouter);
 // 使用自定义插件
 Vue.use(plugin);
 
-// api请求base路径
-window.BASE = '';
-//window.BASE = 'http://www.voilm.com';
-
 // 自定义本地存储
 window.LocalStorage = new WebStorage();
 window.SessionStorage = new WebStorage('sessionStorage');
