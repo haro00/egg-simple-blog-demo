@@ -1,0 +1,33 @@
+# 用户
+type User {
+    id: Int!
+    name: String!
+    password: String
+    roleId: Int
+    email: String
+    state: Int
+    createTime: String,
+    token: String
+}
+
+# 用户登录参数
+input UserLoginIpt{
+    name: String!
+    password: String!
+    save: Boolean
+}
+
+input UserUpdateIpt{
+    id: Int
+    name: String
+    password: String
+    email: String
+    roleId: Int
+    state: Int
+}
+
+# 用户列表
+type UserList{
+    total: Int
+    list: [User]!
+}

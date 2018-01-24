@@ -1,0 +1,52 @@
+# 文章
+type Article {
+    id: Int
+    title: String
+    creator: String
+    creatorId: Int
+    content: String
+    editor: Int
+    intro: String
+    typeId: String
+    state: Int
+    views: Int
+    createTime: String
+    updateTime: String
+}
+
+# 添加/编辑文章参数
+input ArticleUpdateIpt{
+    id: Int
+    title: String
+    creatorId: Int
+    content: String
+    editor: Int
+    intro: String
+    typeId: String
+    state: Int
+    createTime: String
+    updateTime: String
+}
+
+# 文章列表
+type ArticleList{
+    total: Int
+    list: [Article]!
+}
+
+# 文章列表查询参数
+input ArticleListIpt{
+    page: Int
+    pageSize: Int
+    search: String
+    state: Int
+    creatorId: Int
+    date: String
+    typeId: Int
+}
+
+# 文章归档日期列表
+type ArticleDate {
+    date: String
+    total: Int
+}

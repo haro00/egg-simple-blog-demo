@@ -1,0 +1,10 @@
+type Type {
+    id: Int
+    name: String
+    total: Int
+}
+
+type TypeList{
+    total: Int
+    list: [Type]!
+}

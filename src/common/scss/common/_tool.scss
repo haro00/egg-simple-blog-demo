@@ -1,0 +1,366 @@
+@charset "utf-8";
+
+/****************************************************************************************************
+* 常用的样式类
+****************************************************************************************************/
+
+/* colors */
+.color-green{
+    color: $green;
+}
+
+.color-blue{
+    color: $blue;
+}
+
+/* tools */
+.clearfix{
+    *zoom: 1;
+}
+
+.clearfix:after{
+    content: "";
+    display: table;
+    line-height: 0;
+    clear: both;
+}
+
+.cb{
+    clear: both;
+}
+
+.cp{
+    cursor: pointer;
+}
+
+[disabled]{
+    cursor: default;
+}
+
+/* 字体文本相关 */
+.fwb{
+    font-weight: bold;
+}
+
+.fwn{
+    font-weight: normal;
+}
+
+.tal{
+    text-align: left;
+}
+
+.tac{
+    text-align: center;
+}
+
+.tar{
+    text-align: right;
+}
+
+.ellipsis{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 文档流相关 */
+.db{
+    display: block;
+}
+
+.dib{
+    display: inline-block;
+}
+
+.dn{
+    display: none;
+}
+
+.prlt{
+    position: relative;
+}
+
+.pabs{
+    position: absolute;
+}
+
+.pfixed{
+    position: fixed;
+}
+
+.top0{
+    top: 0;
+}
+
+.left0{
+    left: 0;
+}
+
+.bottom0{
+    bottom: 0;
+}
+
+.right0{
+    right: 0;
+}
+
+.fl{
+    float: left;
+}
+
+.fr{
+    float: right;
+}
+
+.fn{
+    float: none;
+}
+
+/* border */
+.border0{
+    border: 0;
+}
+
+.Border0{
+    border: 0 !important;
+}
+
+.input-text{
+    height: $ipt-height;
+    width: 220px;
+    padding: 0 10px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+/*单选框*/
+.input-radio{
+    position: relative;
+    input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        &:checked{
+            + span{
+                &:before{
+                    border-color: $theme;
+                }
+                &:after{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 4px;
+                    display: block;
+                    width: 6px;
+                    height: 6px;
+                    margin-top: -3px;
+                    border-radius: 50%;
+                    background: $theme;
+                }
+            }
+        }
+        &:disabled{
+            + span:before{
+                border-color: $border-color;
+                background: $bg-color;
+            }
+            &:checked + span:after{
+                background: $border-color;
+            }
+        }
+    }
+    span{
+        position: relative;
+        display: inline-block;
+        padding-left: 20px;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 14px;
+            height: 14px;
+            margin-top: -7px;
+            box-sizing: border-box;
+            border: 1px solid $border-color;
+            border-radius: 50%;
+        }
+    }
+}
+
+/*多选框*/
+.input-checkbox{
+    position: relative;
+    input{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        &:checked{
+            + span{
+                &:before{
+                    border-color: $theme;
+                }
+                &:after{
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 3px;
+                    display: block;
+                    width: 8px;
+                    height: 4px;
+                    margin-top: -4px;
+                    border-left: 1px solid $theme;
+                    border-bottom: 1px solid $theme;
+                    transform: rotateZ(-45deg);
+                }
+            }
+        }
+        &:disabled{
+            + span:before{
+                border-color: $border-color;
+                background: $disabled;
+            }
+            &:checked + span:after{
+                border-left: 1px solid $border-color;
+                border-bottom: 1px solid $border-color;
+            }
+        }
+    }
+    span{
+        position: relative;
+        display: inline-block;
+        padding-left: 20px;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 14px;
+            height: 14px;
+            margin-top: -7px;
+            box-sizing: border-box;
+            border: 1px solid $border-color;
+        }
+    }
+}
+
+/*上传文件*/
+.input-file{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    input[type='file']{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+    a{
+        @include button(
+            $width: 100%,
+            $height: $ipt-height,
+            $bgcolor: $orange,
+            $font-color: #fff,
+            $font-size: 14px,
+            $radius: 2px,
+            $border: true,
+            $bdcolor: $orange
+        );
+    }
+}
+
+.textarea{
+    width: 220px;
+    height: 80px;
+    padding: 5px 8px;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+    line-height: 1.5em;
+    box-sizing: border-box;
+    resize: none;
+    overflow: auto;
+}
+
+/*遮罩层*/
+.mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $index-mask;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+}
+
+.mask-transparent{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $index-mask;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+}
+
+.required{
+    position: relative;
+    display: inline-block;
+    &:before{
+        content: '*';
+        position: absolute;
+        top: 0;
+        left: -7px;
+        font-size: 16px;
+        color: $red;
+    }
+}
+
+.strip{
+    height: 5px;
+    margin: 10px auto;
+    border: 0;
+    background-image: linear-gradient(117deg, transparent 20%, $orange 20%, transparent 40%, transparent 60%, $green 60%, transparent 80%), linear-gradient(297deg, transparent 20%, $green 20%, transparent 40%, transparent 60%, $orange 60%, transparent 80%);
+    background-size: 10px 5px;
+}
+
+.btn-default{
+    @include button(
+        $width: 80px,
+        $height: $ipt-height,
+        $bgcolor: $theme,
+        $font-color: #fff,
+        $font-size: 14px,
+        $radius: 2px
+    );
+    max-width: 100%;
+    &[disabled]{
+        background: $disabled !important;
+    }
+}
+
+.btn-cancel{
+    @include button(
+        $width: 80px,
+        $height: $ipt-height,
+        $bgcolor: white,
+        $font-color: $content-light,
+        $font-size: 14px,
+        $radius: 2px,
+        $border: true,
+        $bdcolor: $border-color
+    );
+    max-width: 100%;
+}

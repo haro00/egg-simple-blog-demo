@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/**
+ * 字体
+ */
+$font: Microsoft Yahei, "Hiragino Sans GB", helvetica, verdana, sans-serif;
+$icon-font: 'iconfont';
+
+/**
+ * 布局
+ */
+$width-min: 1000px;
+$header-height: 50px;
+$footer-height: 50px;
+$ipt-height: 32px;
+
+/**
+ * 颜色
+ */
+$theme: #0059a9;
+$orange: #ff6e5f;
+$light-purple: #d7d5e7;
+$red: #d83030;
+$green: #00bfb0;
+$blue: #0059a9;
+$blue-light: #409eff;
+$green-light: #00fffd;
+$pink: #ffe6eb;
+$disabled: #c2c2c2;
+
+// 字体
+$content: #333;
+$content-light: #666;
+$gray: #909090;
+$gray-light: #ccc;
+
+// 背景
+$bg-color: #fcfcfc;
+$bg-gray: #f8f8f8;
+$bg-blue: #ebf5ff;
+
+// 边框
+$border-color: #e6e6e6;
+
+/**
+ * 层级
+ */
+$index-header: 99;
+$index-menu: 6;
+$index-mask: 9;
+$index-popup: 10;
+$index-confirm: 20,

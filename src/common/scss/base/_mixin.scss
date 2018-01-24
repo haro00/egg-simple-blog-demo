@@ -1,0 +1,253 @@
+@charset "UTF-8";
+@import "./variables";
+
+//字体大小
+@mixin fontSize($size: 14){
+    font-size: #{$size/10}rem;
+}
+
+// 单行文本溢出时使用"..."结尾
+@mixin ellipsis(){
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// clear fix for float
+@mixin clearfix($direction: both){
+    &:after{
+        display: table;
+        clear: $direction;
+        content: '';
+    }
+    
+}
+
+//背景图片
+@mixin background(
+    $url: '',
+    $size: auto auto,
+    $color: transparent
+){
+    background-color: $color;
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $size;
+}
+
+//按钮
+@mixin button(
+    $width: 60px,
+    $height: 30px,
+    $bgcolor: #fff,
+    $font-color: $content,
+    $font-size: 14px,
+    $radius: 0px,
+    $border: false,
+    $bdcolor: $border-color
+){
+    display: inline-block;
+    height: $height;
+    min-width: $width;
+    padding: 0 8px;
+    background-color: $bgcolor;
+    border-radius: $radius;
+    color: $font-color;
+    font-size: $font-size;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    
+    &[disabled]{
+        cursor: default !important;
+    }
+    
+    @if $border{
+        border: 1px solid $bdcolor;
+        line-height: $height - 2px;
+    } @else{
+        border: 0;
+        line-height: $height;
+    }
+}
+
+/*叉号(默认)和加号小图标*/
+@mixin close(
+    $width: 14px,
+    $circle-bg: transparent,
+    $line-bg: $gray,
+    $rotate: 45deg,
+    $margin: 2px
+){
+    position: relative;
+    display: block;
+    height: $width;
+    width: $width;
+    border-radius: 50%;
+    background: $circle-bg;
+    transition: all .4s ease;
+    
+    &:hover{
+        transform: rotateZ(180deg);
+    }
+    
+    &:before{
+        content: '';
+        position: absolute;
+        top: $margin;
+        left: ($width - 2px) / 2;
+        display: block;
+        width: 2px;
+        height: $width - $margin * 2;
+        background: $line-bg;
+        border-radius: 1px;
+        transform: rotateZ($rotate);
+    }
+    
+    &:after{
+        content: '';
+        position: absolute;
+        left: $margin;
+        top: ($width - 2px) / 2;
+        display: block;
+        height: 2px;
+        width: $width - $margin * 2;
+        background: $line-bg;
+        border-radius: 1px;
+        transform: rotateZ($rotate);
+    }
+}
+
+/*叹号小图标*/
+@mixin warn(
+    $width: 14px,
+    $circle-bg: $theme,
+    $line-bg: #fff,
+    $margin: 2px
+){
+    position: relative;
+    display: block;
+    height: $width;
+    width: $width;
+    border-radius: 50%;
+    background: $circle-bg;
+    
+    &:before{
+        content: '';
+        position: absolute;
+        top: $margin;
+        left: 50%;
+        display: block;
+        width: 2px;
+        height: $width - 3px - $margin * 2;
+        margin-left: -1px;
+        background: $line-bg;
+    }
+    
+    &:after{
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: $margin;
+        display: block;
+        width: 2px;
+        height: 2px;
+        margin-left: -1px;
+        background: $line-bg;
+    }
+}
+
+// 搜索小图标
+@mixin search(
+    $width: 16px,
+    $color: $content,
+    $color-hover: $theme
+){
+    position: relative;
+    display: block;
+    width: $width;
+    height: $width;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: $width / 2;
+        height: $width / 2;
+        border: 2px solid $color;
+        border-radius: 50%;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        top: $width / 2 + 2px;
+        left: $width / 2 + 1px;
+        display: block;
+        height: $width / 2;
+        width: 2px;
+        background: $color;
+        border-radius: 1px;
+        transform-origin: left top;
+        transform: rotate(-50deg);
+    }
+    &:hover, &:active{
+        &:before{
+            border-color: $color-hover;
+        }
+        &:after{
+            background: $color-hover;
+        }
+    }
+}
+
+/**
+ * 改变小图标颜色
+ */
+@mixin icon(
+    $width: 16px,
+    $height: 16px,
+    $url: false,
+    $color: #fff,
+    $size: auto auto,
+    $hover: false
+){
+    position: relative;
+    display: inline-block;
+    width: $width;
+    height: $height;
+    overflow: hidden;
+    cursor: pointer;
+    i{
+        position: relative;
+        display: block;
+        height: $height;
+        @if $url{
+            background-image: url($url);
+        }
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: $size;
+        box-sizing: border-box;
+        @if $hover{
+            width: $width;
+        } @else{
+            left: -1 * $width;
+            width: $width * 2;
+            border-right: $width solid transparent;
+            -webkit-filter: drop-shadow($width 0 0 $color);
+            filter: drop-shadow($width 0 0 $color);
+        }
+    }
+    @if $hover{
+        &:hover i{
+            left: -1 * $width;
+            width: $width * 2;
+            border-right: $width solid transparent;
+            -webkit-filter: drop-shadow($width 0 0 $color);
+            filter: drop-shadow($width 0 0 $color);
+        }
+    }
+}

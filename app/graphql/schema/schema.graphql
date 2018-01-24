@@ -1,0 +1,63 @@
+# 只传入id
+input IdIpt{
+    id: Int!
+}
+
+# 列表搜索基本参数
+input PageIpt{
+    page: Int
+    pageSize: Int
+    search: String
+}
+
+# 查询
+type Query {
+
+    # 用户登录
+    userLogin(
+        data: UserLoginIpt
+    ): User
+
+    # 获取用户列表
+    userList(
+        data: PageIpt
+    ): UserList
+
+    # 获取用户
+    user(
+        data: IdIpt
+    ): User
+
+    # 获取文章列表
+    articleList(
+        data: ArticleListIpt
+    ): ArticleList
+
+    # 获取文章
+    article(
+        data: IdIpt
+    ): Article
+
+    # 获取文章归档日期
+    createDate: [ArticleDate]
+
+    # 获取文章分类列表
+    typeList(
+        data: PageIpt
+    ): TypeList
+
+}
+
+# 增删改
+type Mutation {
+
+    # 添加/编辑用户
+    user(
+        data: UserUpdateIpt
+    ): User
+
+    # 添加/编辑文章
+    article(
+        data: ArticleUpdateIpt
+    ): Article
+}

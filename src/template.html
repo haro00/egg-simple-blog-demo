@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="max-age: 31536000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" sizes="16x16" href="<%= htmlWebpackPlugin.files.favicon %>"/>
+    <meta name="description" content="blog">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="me" href="mailto:shijie@stu.xmu.edu.cn">
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" charset="UTF-8" type="text/css">
+    <% } %>
+</head>
+<body>
+
+<div id="app"></div>
+
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" type="text/javascript" charset="UTF-8"></script>
+<% } %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/************************
+* 入口
+*************************/
+
+@import "base/variables";
+@import "base/mixin";
+@import "base/normalize";
+
+/**
+ * 页面各元素
+ */
+@import "common/tool";
+
+@import "common/vue";
+
+@import "common/layout";
+
