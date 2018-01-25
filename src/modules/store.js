@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {fetchGraphql} from '../common/plugin/function/graphql'
+import {fetchGraphql} from '../common/plugin/function/fetch'
 
 Vue.use(Vuex);
 

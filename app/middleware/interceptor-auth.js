@@ -7,10 +7,10 @@ const md5 = require('md5');
 
 module.exports = (opt, app) => {
     return async (ctx, next) => {
-        let auth = ctx.headers['x-auth-code'];
+        let auth = ctx.headers['x-auth-sign'];
         let date = new Date();
-        let authCode = md5(date.getFullYear() + date.getMonth() + date.getDate());
-        if (ctx.method === 'GET' || auth === authCode) {
+        let authSign = md5(date.getFullYear() + date.getMonth() + date.getDate());
+        if (ctx.method === 'GET' || auth === authSign) {
             await next();
             return false;
         }

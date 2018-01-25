@@ -2,9 +2,7 @@
 
 一个简单的博客示例，后台使用`eggjs`，使用了`egg-mysql`、`egg-graphql`、`egg-sockect.io`等插件。前端页面使用`vue2.x`，发送请求使用`fetch`。
 
-如果`eggjs`仅用来作中间层，可以直接使用内置的`HttpClient`向后台发送请求获取数据来代替`service`层。
-
-代码一般，仅供参考。
+`MySql`和`GraphQL`不是很熟练，代码一般，仅供参考。
 
 ## 快速入门
 
@@ -42,7 +40,7 @@
 |---/config    // egg配置
 |---/logs    // 日志, 自动生成
 |---/run    // 框架和应用的启动配置, 自动生成
-|---/src    // 前端资源, 将会被打包到/app/static
+|---/src    // 前端资源, 将会被打包到/app/public
 |---|---/common    // 公共资源
 |---|---|---/components    // 公共vue组件
 |---|---|---/images    // 公共图片
@@ -53,8 +51,8 @@
 |---|---/modules    // 页面模块
 |---|---/router    // 前端路由
 |---|---app.js    // 前端入口
-|---|---template.html    // 模板html
-|---/test    // 测试目录, egg的测试必须以 **.test.js 方式命名
+|---|---template.html    // 模板html, 将会被打包到/app/view
+|---/test    // 测试目录, egg的测试文件必须以 **.test.js 方式命名
 |---/app.js    // 本地开发自定义启动过程中加载的中间件,获取数据等
 |---.babelrc    // babel配置
 |---.eslintrc    // eslint配置
@@ -78,7 +76,7 @@ $ npm run dev
 - 生产环境编译
 
 ```
-npm run release
+$ npm run release
 ```
 
 - 服务器只需要`app`和`config`两个文件夹
@@ -86,7 +84,7 @@ npm run release
 - 服务器安装依赖
 
 ```
-npm install --production
+$ npm install --production
 ```
 
 - 使用`egg-script`来启动。
@@ -107,9 +105,8 @@ $ npm stop
 - 使用 `npm test` 来执行单元测试。
 
 
-[egg]: https://eggjs.org
-
-
 ## License
 
 MIT
+
+[egg]: https://eggjs.org

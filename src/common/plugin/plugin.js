@@ -3,7 +3,7 @@ import title from './directive/title'
 import IndexdDB from 'indexeddb-promise'
 import confirm from './function/confirm'
 import tip from './function/tip'
-import {fetchApi, fetchGraphql} from './function/graphql'
+import {fetchApi, fetchGraphql} from './function/fetch'
 import io from '../../../node_modules/socket.io-client'
 
 import VueSelect from '../../common/components/select.vue'
